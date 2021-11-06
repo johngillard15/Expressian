@@ -37,4 +37,10 @@ public class VehicleController {
 
         return repository.save(vehicle);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> destroyVehicle(@PathVariable Long id){
+        repository.deleteById(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.OK);
+    }
 }
