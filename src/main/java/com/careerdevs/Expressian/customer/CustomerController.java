@@ -38,4 +38,10 @@ public class CustomerController {
 
         return repository.save(customer);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> destroyCustomer(@PathVariable Long id){
+        repository.deleteById(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.OK);
+    }
 }
