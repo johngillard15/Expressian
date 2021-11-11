@@ -1,12 +1,20 @@
 package com.careerdevs.Expressian.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.careerdevs.Expressian.rental.Rental;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
-    @Id @GeneratedValue private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @OneToMany
+    @JoinColumn(name = "rental_id", referencedColumnName = "id")
+    private List<Rental> rentals;
+
     private String firstName;
     private String lastName;
 

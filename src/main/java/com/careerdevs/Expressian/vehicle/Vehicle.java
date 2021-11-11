@@ -1,12 +1,19 @@
 package com.careerdevs.Expressian.vehicle;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.careerdevs.Expressian.rental.Rental;
+
+import javax.persistence.*;
 
 @Entity
 public class Vehicle {
-    @Id @GeneratedValue private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "rental_id", referencedColumnName = "id")
+    private Rental rental;
+
     private String make;
     private String model;
 
