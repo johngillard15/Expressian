@@ -1,6 +1,7 @@
 package com.careerdevs.Expressian.vehicle;
 
 import com.careerdevs.Expressian.rental.Rental;
+import com.careerdevs.Expressian.store.Store;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,6 +15,10 @@ public class Vehicle {
     @OneToMany
     @JoinColumn(name = "rental_id", referencedColumnName = "id")
     private List<Rental> rentals;
+
+    @ManyToOne
+    @JoinColumn(name = "rental_id", referencedColumnName = "id")
+    private Store store;
 
     private String make;
     private String model;
