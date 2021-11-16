@@ -3,6 +3,7 @@ package com.careerdevs.Expressian.vehicle;
 import com.careerdevs.Expressian.rental.Rental;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Vehicle {
@@ -10,9 +11,9 @@ public class Vehicle {
     @GeneratedValue
     private Long id;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "rental_id", referencedColumnName = "id")
-    private Rental rental;
+    private List<Rental> rentals;
 
     private String make;
     private String model;
