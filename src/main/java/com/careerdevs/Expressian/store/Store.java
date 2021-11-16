@@ -1,9 +1,12 @@
 package com.careerdevs.Expressian.store;
 
+import com.careerdevs.Expressian.customer.Customer;
 import com.careerdevs.Expressian.rental.Rental;
+import com.careerdevs.Expressian.vehicle.Vehicle;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Store {
@@ -13,7 +16,11 @@ public class Store {
 
     @ManyToMany
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
-    private List<Rental> customers;
+    private Set<Customer> customers;
+
+    @ManyToMany
+    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
+    private List<Vehicle> vehicles;
 
     private String name;
     private String location;
