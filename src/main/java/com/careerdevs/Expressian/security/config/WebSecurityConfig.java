@@ -1,4 +1,4 @@
-package com.careerdevs.Expressian.security;
+package com.careerdevs.Expressian.security.config;
 
 import com.careerdevs.Expressian.security.jwt.AuthEntryPointJwt;
 import com.careerdevs.Expressian.security.jwt.AuthTokenFilter;
